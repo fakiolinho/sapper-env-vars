@@ -3,17 +3,11 @@
 
 	export let segment;
 
-	let token = '';
-
 	const { session } = stores();
-
-	session.subscribe(s => {
-		token = s.NEWSLETTER_API_TOKEN;
-	});
 
 	$: {
 		console.group('Nav component');
-		console.log(`Env var "NEWSLETTER_API_TOKEN" has value: ${token}`);
+		console.log(`Env var "NEWSLETTER_API_TOKEN" has value: ${$session.NEWSLETTER_API_TOKEN}`);
 		console.groupEnd();
 	}
 </script>
